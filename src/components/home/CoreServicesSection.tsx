@@ -83,14 +83,24 @@ export const CoreServicesSection: React.FC = () => {
                 </div>
               </div>
 
-              <a
-                href={`#${service.path}`}
-                data-path={service.path}
-                className="inline-flex items-center gap-2 font-label-md text-label-md text-secondary group-hover:translate-x-1 transition-transform"
-              >
-                <span>{service.linkText}</span>
-                <ChevronRight className="w-4 h-4" />
-              </a>
+              <div className="flex items-center justify-between pt-4 border-t border-outline-variant/10">
+                <a
+                  href={service.path === 'resources' ? '/resources' : `/service#module-${service.id}`}
+                  className="inline-flex items-center gap-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors"
+                >
+                  <span>{service.linkText}</span>
+                  <ChevronRight className="w-4 h-4 text-outline" />
+                </a>
+
+                <a
+                  href={`/contact?service=${service.id}#dept-${service.id}`}
+                  className="inline-flex items-center gap-1 font-label-md text-label-md font-bold text-secondary hover:text-secondary-container transition-colors shrink-0"
+                  title={`Contact specialist for ${service.title}`}
+                >
+                  <span>Contact</span>
+                  <ChevronRight className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           ))}
         </div>

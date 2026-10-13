@@ -36,7 +36,7 @@ export const ServiceModuleHud: React.FC<ServiceModuleHudProps> = ({
 
   return (
     <article
-      className="rounded-2xl bg-surface-container-lowest p-8 lg:p-12 shadow-sm border border-outline-variant/15 relative overflow-hidden transition-all duration-300"
+      className="rounded-2xl bg-surface-container-lowest p-5 sm:p-8 lg:p-12 shadow-sm border border-outline-variant/15 relative overflow-hidden transition-all duration-300 scroll-mt-48"
       id="module-hud"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">

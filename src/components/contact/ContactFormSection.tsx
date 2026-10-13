@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Send, CheckCircle2, ShieldCheck, Clock } from 'lucide-react';
 import { OFFICE_LOCATION } from '../../data/contactPage';
 
 export const ContactFormSection: React.FC = () => {
+  const location = useLocation();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -14,6 +16,47 @@ export const ContactFormSection: React.FC = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    const mapServiceKeyToOption = (key: string): string => {
+      const k = key.toLowerCase();
+      if (k.includes('433a')) return '433a-cert';
+      if (k.includes('hud') || k.includes('fha') || k.includes('engineer')) return 'hud-fha';
+      if (k.includes('relevel')) return 'releveling';
+      if (k.includes('drain') || k.includes('crawl')) return 'drainage';
+      if (k.includes('seismic') || k.includes('erbs')) return 'seismic';
+      if (k.includes('escrow') || k.includes('lender') || k.includes('curative')) return 'escrow-title';
+      if (k.includes('expert') || k.includes('testimony')) return 'expert-testimony';
+      return '433a-cert';
+    };
+
+    const handleSync = () => {
+      const searchParams = new URLSearchParams(window.location.search);
+      const serviceParam = searchParams.get('service');
+      const hash = window.location.hash.replace('#', '').replace('dept-', '');
+
+      const key = serviceParam || hash;
+      if (key) {
+        const option = mapServiceKeyToOption(key);
+        setFormData((prev) => ({ ...prev, serviceNeeded: option }));
+      }
+    };
+
+    const handleCustomEvent = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail?.service) {
+        setFormData((prev) => ({ ...prev, serviceNeeded: detail.service }));
+      }
+    };
+
+    handleSync();
+    window.addEventListener('hashchange', handleSync);
+    window.addEventListener('otl:select-service', handleCustomEvent);
+    return () => {
+      window.removeEventListener('hashchange', handleSync);
+      window.removeEventListener('otl:select-service', handleCustomEvent);
+    };
+  }, [location]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

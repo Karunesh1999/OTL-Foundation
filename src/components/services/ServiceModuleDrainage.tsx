@@ -4,23 +4,30 @@ import {
   CheckCircle2,
   Waves,
   Sliders,
+  Phone,
+  Mail,
+  ArrowRight,
 } from 'lucide-react';
 import { MOISTURE_COMPROMISED_SIGNS } from '../../data/servicesPage';
 
 interface ServiceModuleDrainageProps {
   isVisible?: boolean;
   onGetQuote?: () => void;
+  onRequestInspection?: () => void;
 }
 
 export const ServiceModuleDrainage: React.FC<ServiceModuleDrainageProps> = ({
   isVisible = true,
   onGetQuote,
+  onRequestInspection,
 }) => {
   if (!isVisible) return null;
 
+  const handleAction = onGetQuote || onRequestInspection;
+
   return (
     <article
-      className="rounded-2xl bg-surface-container-lowest p-8 lg:p-12 shadow-sm border border-outline-variant/15 relative overflow-hidden transition-all duration-300"
+      className="rounded-2xl bg-surface-container-lowest p-5 sm:p-8 lg:p-12 shadow-sm border border-outline-variant/15 relative overflow-hidden transition-all duration-300 scroll-mt-48"
       id="module-drainage"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -82,9 +89,29 @@ export const ServiceModuleDrainage: React.FC<ServiceModuleDrainageProps> = ({
               HUD regulations mandate 1 square foot of free ventilation area for every 150 square feet of underfloor space. We install galvanized pest-resistant crawlspace louvers to prevent stagnant humidity and termite infestations.
             </p>
           </div>
+
+          {/* Action Row */}
+          <div className="pt-2 flex flex-wrap items-center gap-4">
+            <button
+              type="button"
+              onClick={handleAction}
+              className="px-6 py-3.5 rounded-lg bg-secondary-container text-on-primary font-headline-sm text-headline-sm hover:bg-secondary hover:shadow-md transition-all shadow-sm inline-flex items-center gap-2 cursor-pointer"
+            >
+              <span>Schedule Crawl Space Moisture Inspection</span>
+              <ShieldCheck className="w-5 h-5" />
+            </button>
+
+            <a
+              href="tel:7604151923"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high text-on-surface font-headline-sm text-headline-sm hover:bg-secondary/10 transition-colors text-xs font-bold"
+            >
+              <Phone className="w-4 h-4 text-secondary" />
+              <span>Field Dispatch: 760-415-1923</span>
+            </a>
+          </div>
         </div>
 
-        {/* Right Sidebar (5 cols) */}
+        {/* Right Sidebar (5 cols) - Photo Showcase & Dedicated Specialist Card */}
         <div className="lg:col-span-5 space-y-6">
           {/* Crawl Space Encapsulation & Drainage Image Card */}
           <div className="rounded-xl overflow-hidden shadow-md bg-surface-container-lowest border border-outline-variant/15 group">
@@ -93,35 +120,92 @@ export const ServiceModuleDrainage: React.FC<ServiceModuleDrainageProps> = ({
                 alt="Encapsulated manufactured home crawlspace with reinforced vapor barrier and gravel French drain system"
                 className="w-full h-56 sm:h-64 object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 src="/images/service-drainage-barrier.jpg"
+                loading="lazy"
               />
               <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-surface-container-lowest/90 backdrop-blur-md border border-outline-variant/20 text-on-surface text-xs font-semibold flex items-center gap-1.5 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse" />
-                <span>Encapsulation &amp; Gravity French Drain</span>
+                <span>Encapsulation &bull; Gravity French Drain</span>
               </div>
+            </div>
+            <div className="p-5 bg-surface-container-lowest space-y-2">
+              <span className="font-badge-caps text-badge-caps text-secondary font-bold tracking-wider uppercase">
+                Sub-Crawl Space Environmental Defense
+              </span>
+              <h4 className="font-headline-sm text-headline-sm text-on-surface font-bold">
+                Sub-Floor Vapor Barrier &amp; Perimeter Drainage
+              </h4>
+              <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Reinforced heavy-duty polyethylene barrier encapsulation combined with passive gravity French trenches halts floor dampness, chassis rust, and mold at the source.
+              </p>
             </div>
           </div>
 
-          <div className="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 space-y-4 shadow-sm">
-            <h3 className="font-headline-sm text-headline-sm text-on-surface font-bold">
-              Signs Your Moisture Barrier Is Compromised:
-            </h3>
-            <ul className="space-y-3 font-body-sm text-body-sm text-on-surface-variant">
-              {MOISTURE_COMPROMISED_SIGNS.map((sign, i) => (
-                <li key={i} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-secondary-container shrink-0 mt-0.5" />
-                  <span className="leading-snug">{sign}</span>
-                </li>
-              ))}
-            </ul>
+          {/* Scott Arendsen aka "Bubba" Specialist Card */}
+          <div className="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/20 shadow-md space-y-4">
+            <div className="flex items-center justify-between">
+              <span className="font-badge-caps text-badge-caps uppercase text-secondary font-bold tracking-wider">
+                Field Operations Specialist
+              </span>
+              <span className="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold">
+                Underfloor Moisture Desk
+              </span>
+            </div>
 
-            <div className="pt-3">
-              <button
-                type="button"
-                onClick={onGetQuote}
-                className="w-full py-3.5 rounded-lg bg-secondary-container text-on-primary font-headline-sm text-headline-sm hover:bg-secondary transition-colors text-center block shadow-sm cursor-pointer"
+            <div className="space-y-1.5">
+              <h3 className="font-headline-md text-headline-md text-on-surface font-extrabold">
+                Scott Arendsen aka "Bubba"
+              </h3>
+              <div className="text-body-sm font-semibold text-secondary flex items-center gap-1.5">
+                <Waves className="w-4 h-4 text-secondary-container" />
+                <span>Crawl Space Moisture Barriers &amp; French Drains</span>
+              </div>
+              <p className="font-body-sm text-body-sm text-on-surface-variant pt-1 leading-relaxed">
+                35+ years leading on-site crawl space restorations, torn belly wrap reconditioning, heavy vapor barrier encapsulation, and gravity-fed trench drainage.
+              </p>
+            </div>
+
+            {/* Quick Contact Buttons */}
+            <div className="grid grid-cols-2 gap-2 pt-2 border-t border-outline-variant/15">
+              <a
+                href="tel:7604151923"
+                className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-surface-container-lowest hover:bg-secondary-container hover:text-on-primary transition-colors text-xs font-bold text-on-surface border border-outline-variant/15"
               >
-                Get Crawl Space Inspection Quote
-              </button>
+                <Phone className="w-3.5 h-3.5 text-secondary" />
+                <span>760-415-1923</span>
+              </a>
+
+              <a
+                href="mailto:scottarendsen@mac.com?subject=Moisture%20Barrier%20%26%20Drainage%20Inquiry"
+                className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-surface-container-lowest hover:bg-secondary-container hover:text-on-primary transition-colors text-xs font-bold text-on-surface border border-outline-variant/15"
+              >
+                <Mail className="w-3.5 h-3.5 text-secondary" />
+                <span>Direct Email</span>
+              </a>
+            </div>
+
+            {/* Prominent Button-like Link to redirect to Bubba on the contact page */}
+            <button
+              type="button"
+              onClick={handleAction}
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-secondary text-on-primary hover:bg-secondary/90 transition-all font-headline-sm text-xs font-bold shadow-sm cursor-pointer hover:shadow-md active:scale-[0.99]"
+            >
+              <span>Connect with Bubba on Contact Page</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+
+            {/* Warning Signs Checklist */}
+            <div className="pt-3 border-t border-outline-variant/15 space-y-2.5">
+              <div className="text-xs font-bold text-on-surface uppercase tracking-wider">
+                Signs Moisture Barrier Is Compromised:
+              </div>
+              <ul className="space-y-2 text-body-sm text-on-surface-variant">
+                {MOISTURE_COMPROMISED_SIGNS.map((sign, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                    <span className="text-xs leading-snug">{sign}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

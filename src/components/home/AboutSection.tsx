@@ -83,30 +83,30 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onRequestInspection 
               </div>
 
               {/* Floating Top Badge: 35+ Years Family-Owned */}
-              <div className="absolute -top-4 -left-4 sm:-top-5 sm:-left-5 bg-surface-container-lowest/95 backdrop-blur-md p-3.5 rounded-xl border border-outline-variant/20 shadow-xl flex items-center gap-3 max-w-[220px]">
-                <div className="w-10 h-10 rounded-lg bg-secondary text-on-primary flex items-center justify-center font-extrabold text-lg shadow-sm">
+              <div className="absolute top-2 left-2 sm:-top-5 sm:-left-5 bg-surface-container-lowest/95 backdrop-blur-md p-3 sm:p-3.5 rounded-xl border border-outline-variant/20 shadow-xl flex items-center gap-2.5 sm:gap-3 max-w-[200px] sm:max-w-[220px]">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-secondary text-on-primary flex items-center justify-center font-extrabold text-base sm:text-lg shadow-sm shrink-0">
                   35+
                 </div>
                 <div>
                   <div className="font-headline-sm text-xs font-bold text-on-surface leading-tight">
                     Years of Field Craft
                   </div>
-                  <div className="text-[11px] text-on-surface-variant font-medium">
+                  <div className="text-[10px] sm:text-[11px] text-on-surface-variant font-medium">
                     Family-Owned Since 1990
                   </div>
                 </div>
               </div>
 
               {/* Floating Bottom-Right Badge: Dual CA Licensure */}
-              <div className="absolute -bottom-4 -right-4 sm:-bottom-5 sm:-right-5 bg-surface-container-lowest/95 backdrop-blur-md p-3.5 rounded-xl border border-outline-variant/20 shadow-xl flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+              <div className="absolute bottom-2 right-2 sm:-bottom-5 sm:-right-5 bg-surface-container-lowest/95 backdrop-blur-md p-3 sm:p-3.5 rounded-xl border border-outline-variant/20 shadow-xl flex items-center gap-2.5 sm:gap-3">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-5 h-5 text-secondary-container" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-on-surface">
                     Dual California Licenses
                   </div>
-                  <div className="text-[11px] text-on-surface-variant font-mono">
+                  <div className="text-[10px] sm:text-[11px] text-on-surface-variant font-mono">
                     Class B #677241 &bull; C-47 #1022204
                   </div>
                 </div>
@@ -138,10 +138,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onRequestInspection 
             </p>
 
             {/* Action Buttons & Phone Direct */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
               <button
                 onClick={onRequestInspection}
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-secondary-container hover:bg-secondary text-on-primary font-label-md text-label-md font-bold tracking-wide shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-secondary-container hover:bg-secondary text-on-primary font-label-md text-label-md font-bold tracking-wide shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer text-center"
               >
                 <span>Speak with a Foundation Specialist</span>
                 <ArrowRight className="w-4 h-4" />
@@ -149,7 +149,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onRequestInspection 
 
               <a
                 href="tel:8008076288"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg border border-outline-variant/30 hover:border-secondary/40 bg-surface-container-lowest text-on-surface hover:text-secondary font-label-md text-label-md font-semibold transition-all duration-300"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg border border-outline-variant/30 hover:border-secondary/40 bg-surface-container-lowest text-on-surface hover:text-secondary font-label-md text-label-md font-semibold transition-all duration-300 text-center"
               >
                 <PhoneCall className="w-4 h-4 text-secondary" />
                 <span>(800) 807-6288</span>

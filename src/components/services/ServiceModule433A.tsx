@@ -6,9 +6,11 @@ import {
   AlertTriangle,
   Check,
   Phone,
+  Mail,
+  ArrowRight,
+  FileText,
 } from 'lucide-react';
 import { PROCESS_433A_STEPS, SPECS_433A_ITEMS } from '../../data/servicesPage';
-import { CONTACT_INFO } from '../../data/navigation';
 
 interface ServiceModule433AProps {
   isVisible?: boolean;
@@ -21,9 +23,17 @@ export const ServiceModule433A: React.FC<ServiceModule433AProps> = ({
 }) => {
   if (!isVisible) return null;
 
+  const TITLE_433A_DELIVERABLES = [
+    'Official HCD Form 433A recorded with County Recorder',
+    'DMV registration fee cancellation slips (Section B filing)',
+    'Real property tax roll conversion with County Assessor',
+    'ALTA 7 title endorsement ready for mortgage lenders',
+    'Direct escrow billing with $0 upfront out-of-pocket',
+  ];
+
   return (
     <article
-      className="rounded-2xl bg-surface-container-lowest p-8 lg:p-12 shadow-sm border border-outline-variant/15 relative overflow-hidden transition-all duration-300"
+      className="rounded-2xl bg-surface-container-lowest p-5 sm:p-8 lg:p-12 shadow-sm border border-outline-variant/15 relative overflow-hidden transition-all duration-300 scroll-mt-48"
       id="module-433a"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -102,42 +112,53 @@ export const ServiceModule433A: React.FC<ServiceModule433AProps> = ({
             </div>
           </div>
 
-          <div className="pt-2 flex items-center gap-4">
+          {/* Action Row */}
+          <div className="pt-2 flex flex-wrap items-center gap-4">
             <button
               type="button"
               onClick={onRequestInspection}
-              className="px-5 py-3 rounded-lg bg-secondary-container text-on-primary font-headline-sm text-headline-sm hover:bg-secondary hover:shadow-md transition-all shadow-sm inline-flex items-center gap-2 cursor-pointer"
+              className="px-6 py-3.5 rounded-lg bg-secondary-container text-on-primary font-headline-sm text-headline-sm hover:bg-secondary hover:shadow-md transition-all shadow-sm inline-flex items-center gap-2 cursor-pointer"
             >
               <span>Certify Your 433A Permanent Foundation</span>
               <ShieldCheck className="w-5 h-5" />
             </button>
+
+            <a
+              href="tel:7604151982"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high text-on-surface font-headline-sm text-headline-sm hover:bg-secondary/10 transition-colors text-xs font-bold"
+            >
+              <Phone className="w-4 h-4 text-secondary" />
+              <span>Title Desk Direct: 760-415-1982</span>
+            </a>
           </div>
         </div>
 
-        {/* Right Sidebar (5 cols) */}
+        {/* Right Sidebar (5 cols) - Photo Showcase & Dedicated Specialist Card */}
         <div className="lg:col-span-5 space-y-6">
+          {/* Photo Showcase Container */}
           <div className="rounded-xl overflow-hidden shadow-md bg-surface-container-lowest border border-outline-variant/15 group">
             <div className="relative overflow-hidden">
               <img
                 alt="California certified 433A permanent foundation retrofit system with concrete footing and chassis tie-down"
-                className="w-full h-64 sm:h-72 object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-56 sm:h-64 object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 src="/images/service-433a-retrofit.jpg"
+                loading="lazy"
               />
               <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-surface-container-lowest/90 backdrop-blur-md border border-outline-variant/20 text-on-surface text-xs font-semibold flex items-center gap-1.5 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse" />
-                <span>Title 25 Engineered System</span>
+                <span>Title 25 Engineered System &bull; HCD Certified</span>
               </div>
             </div>
             <div className="p-5 bg-surface-container-lowest space-y-3">
               <span className="font-badge-caps text-badge-caps text-secondary font-bold tracking-wider uppercase">
-                Field Verification
+                Field Verification &amp; Titling
               </span>
               <h4 className="font-headline-sm text-headline-sm text-on-surface font-bold">
                 Standard 433A Installation Specifications
               </h4>
-              <ul className="space-y-2.5 font-body-sm text-body-sm text-on-surface-variant">
+              <ul className="space-y-2 font-body-sm text-body-sm text-on-surface-variant">
                 {SPECS_433A_ITEMS.map((spec, i) => (
-                  <li key={i} className="flex items-center gap-2.5">
+                  <li key={i} className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-secondary-container shrink-0" />
                     <span>{spec}</span>
                   </li>
@@ -146,25 +167,72 @@ export const ServiceModule433A: React.FC<ServiceModule433AProps> = ({
             </div>
           </div>
 
-          {/* Escrow Alert Box */}
-          <div className="p-6 rounded-xl bg-primary-container text-on-primary space-y-3 shadow-md">
-            <div className="flex items-center gap-2.5">
-              <ShieldCheck className="w-6 h-6 text-secondary-container" />
-              <span className="font-headline-sm text-headline-sm font-bold text-on-primary">
-                Escrow Closing Protection
+          {/* Janis Arendsen Specialist Card */}
+          <div className="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/20 shadow-md space-y-4">
+            <div className="flex items-center justify-between">
+              <span className="font-badge-caps text-badge-caps uppercase text-secondary font-bold tracking-wider">
+                Direct Title Specialist
+              </span>
+              <span className="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold">
+                Title &amp; Assessor Desk
               </span>
             </div>
-            <p className="font-body-sm text-on-primary-container leading-relaxed">
-              Need a 433A recorded before loan funding? OnTheLevel coordinates directly with your escrow officer and title company. We offer <strong className="text-primary-fixed">Direct Escrow Billing</strong> with zero upfront costs out-of-pocket for buyers or sellers.
-            </p>
-            <div className="pt-1">
+
+            <div className="space-y-1.5">
+              <h3 className="font-headline-md text-headline-md text-on-surface font-extrabold">
+                Janis Arendsen
+              </h3>
+              <div className="text-body-sm font-semibold text-secondary flex items-center gap-1.5">
+                <FileText className="w-4 h-4 text-secondary-container" />
+                <span>Curative Title Solutions &amp; 433A Recordings</span>
+              </div>
+              <p className="font-body-sm text-body-sm text-on-surface-variant pt-1 leading-relaxed">
+                Over 35 years expediting HCD Form 433A filings, County Assessor real property conversions, DMV registration cancellations, and ALTA 7 loan title endorsements.
+              </p>
+            </div>
+
+            {/* Quick Contact Buttons */}
+            <div className="grid grid-cols-2 gap-2 pt-2 border-t border-outline-variant/15">
               <a
-                className="font-label-md text-label-md text-secondary-container hover:text-on-primary transition-colors flex items-center gap-1.5"
-                href={CONTACT_INFO.tollFreeHref}
+                href="tel:7604151982"
+                className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-surface-container-lowest hover:bg-secondary-container hover:text-on-primary transition-colors text-xs font-bold text-on-surface border border-outline-variant/15"
               >
-                <Phone className="w-4 h-4" />
-                <span>Call Escrow Dispatch: {CONTACT_INFO.tollFree}</span>
+                <Phone className="w-3.5 h-3.5 text-secondary" />
+                <span>760-415-1982</span>
               </a>
+
+              <a
+                href="mailto:onthelevel@mac.com?subject=Curative%20Title%20%26%20433A%20Inquiry"
+                className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-surface-container-lowest hover:bg-secondary-container hover:text-on-primary transition-colors text-xs font-bold text-on-surface border border-outline-variant/15"
+              >
+                <Mail className="w-3.5 h-3.5 text-secondary" />
+                <span>Direct Email</span>
+              </a>
+            </div>
+
+            {/* Prominent Button-like Link to redirect to Janis on the contact page */}
+            <button
+              type="button"
+              onClick={onRequestInspection}
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-secondary text-on-primary hover:bg-secondary/90 transition-all font-headline-sm text-xs font-bold shadow-sm cursor-pointer hover:shadow-md active:scale-[0.99]"
+            >
+              <span>Connect with Janis on Contact Page</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+
+            {/* Deliverables Checklist */}
+            <div className="pt-3 border-t border-outline-variant/15 space-y-2.5">
+              <div className="text-xs font-bold text-on-surface uppercase tracking-wider">
+                What Title Officers &amp; Buyers Receive:
+              </div>
+              <ul className="space-y-2 text-body-sm text-on-surface-variant">
+                {TITLE_433A_DELIVERABLES.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                    <span className="text-xs leading-snug">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -172,3 +240,4 @@ export const ServiceModule433A: React.FC<ServiceModule433AProps> = ({
     </article>
   );
 };
+

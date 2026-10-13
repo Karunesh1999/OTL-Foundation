@@ -4,7 +4,7 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: '/', path: 'home', isActive: true },
   { label: 'Services', href: '/service', path: 'services' },
   { label: 'Resources', href: '/resources', path: 'resources' },
-  { label: 'Testimonials', href: '#', path: 'testimonials' },
+  { label: 'Testimonials', href: '/testimonials', path: 'testimonials' },
   { label: 'About', href: '/about', path: 'about' },
   { label: 'Contact', href: '/contact', path: 'contact' },
 ];
@@ -19,12 +19,12 @@ export const CORE_ENGINEERING_LINKS = [
 ];
 
 export const CLIENT_PORTAL_LINKS = [
-  { label: 'Homeowners & Borrowers', href: '#', path: 'homeowner-borrower' },
-  { label: 'Mortgage Lenders & Escrow Officers', href: '#', path: 'lenders-realtors' },
-  { label: 'Realtors & Title Attorneys', href: '#', path: 'lenders-realtors' },
-  { label: 'Modular Builders & Developers', href: '#', path: 'adu-custom-homes' },
+  { label: 'Homeowners & Borrowers', href: '/service#module-433a', path: 'services' },
+  { label: 'Mortgage Lenders & Escrow Officers', href: '/service#module-escrow', path: 'services' },
+  { label: 'Attorneys & Forensic Litigation', href: '/service#module-expert-testimony', path: 'services' },
+  { label: 'Realtors & Title Curative Desk', href: '/contact?service=escrow-title#dept-lender-realtor', path: 'contact' },
+  { label: 'Modular Builders & Developers', href: '/contact?service=adu#dept-development-infill', path: 'contact' },
   { label: 'Mobile Home Park Communities', href: '/resources#condo-park-financing', path: 'resources' },
-  { label: 'Engineering Knowledge Base', href: '/resources#compliance-toolkits', path: 'resources' },
 ];
 
 export const CONTACT_INFO = {

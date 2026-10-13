@@ -45,6 +45,12 @@ export interface TestimonialItem {
   role: string;
   avatarInitials: string;
   rating: number;
+  category?: 'lender' | 'escrow' | 'realtor' | 'homeowner' | 'dealer';
+  date?: string;
+  location?: string;
+  company?: string;
+  verified?: boolean;
+  highlight?: string;
 }
 
 export interface PartnerItem {

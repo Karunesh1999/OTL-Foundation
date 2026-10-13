@@ -4,6 +4,8 @@ import {
   ServicesFilterBar,
   ServiceModule433A,
   ServiceModuleHud,
+  ServiceModuleEscrow,
+  ServiceModuleForensic,
   ServiceModuleReleveling,
   ServiceModuleDrainage,
   ServiceModuleSeismic,
@@ -13,8 +15,8 @@ import {
 } from '../components/services';
 
 interface ServicesPageProps {
-  onRequestInspection?: () => void;
-  onGetQuote?: () => void;
+  onRequestInspection?: (serviceId?: string) => void;
+  onGetQuote?: (serviceId?: string) => void;
 }
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({
@@ -60,7 +62,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   return (
     <div className="w-full min-h-screen bg-surface flex flex-col">
       {/* SECTION 1: HERO & CORE CERTIFICATION CREDENTIALS */}
-      <ServicesHeroSection onRequestInspection={onRequestInspection} />
+      <ServicesHeroSection onRequestInspection={() => onRequestInspection?.()} />
 
       {/* SECTION 2: STICKY CATEGORY FILTER BAR */}
       <ServicesFilterBar
@@ -74,30 +76,44 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           {/* Module A: 433A Permanent Foundation Certification */}
           <ServiceModule433A
             isVisible={activeCategory === 'all' || activeCategory === '433a'}
-            onRequestInspection={onRequestInspection}
+            onRequestInspection={() => onRequestInspection?.('433a')}
           />
 
           {/* Module B: HUD / FHA / VA Engineering Certification */}
           <ServiceModuleHud
             isVisible={activeCategory === 'all' || activeCategory === 'hud'}
-            onRequestInspection={onRequestInspection}
+            onRequestInspection={() => onRequestInspection?.('hud')}
+          />
+
+          {/* Module C: Lender & Realtor Escrow Relations ($0 Upfront Billing) */}
+          <ServiceModuleEscrow
+            isVisible={activeCategory === 'all' || activeCategory === 'escrow'}
+            onRequestInspection={() => onRequestInspection?.('escrow-title')}
+          />
+
+          {/* Module D: Forensic Engineering & Expert Witness Testimony */}
+          <ServiceModuleForensic
+            isVisible={activeCategory === 'all' || activeCategory === 'forensic'}
+            onRequestInspection={() => onRequestInspection?.('expert-testimony')}
           />
 
           {/* Module C: Precision Laser Releveling */}
           <ServiceModuleReleveling
             isVisible={activeCategory === 'all' || activeCategory === 'releveling'}
+            onRequestInspection={() => onRequestInspection?.('releveling')}
           />
 
           {/* Module D: Moisture Barrier & Crawlspace Drainage */}
           <ServiceModuleDrainage
             isVisible={activeCategory === 'all' || activeCategory === 'drainage'}
-            onGetQuote={onGetQuote}
+            onGetQuote={() => onGetQuote?.('drainage')}
+            onRequestInspection={() => onRequestInspection?.('drainage')}
           />
 
           {/* Module E: Earthquake Retrofit & ERBS Seismic Bracing */}
           <ServiceModuleSeismic
             isVisible={activeCategory === 'all' || activeCategory === 'seismic'}
-            onRequestInspection={onRequestInspection}
+            onRequestInspection={() => onRequestInspection?.('seismic')}
           />
         </div>
       </section>

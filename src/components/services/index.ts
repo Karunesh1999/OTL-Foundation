@@ -5,6 +5,8 @@ export { ServiceModuleHud } from './ServiceModuleHud';
 export { ServiceModuleReleveling } from './ServiceModuleReleveling';
 export { ServiceModuleDrainage } from './ServiceModuleDrainage';
 export { ServiceModuleSeismic } from './ServiceModuleSeismic';
+export { ServiceModuleEscrow } from './ServiceModuleEscrow';
+export { ServiceModuleForensic } from './ServiceModuleForensic';
 export { ServicesWorkflowSection } from './ServicesWorkflowSection';
 export { ServicesResourcesSection } from './ServicesResourcesSection';
 export { ServicesCtaSection } from './ServicesCtaSection';

@@ -31,7 +31,7 @@ export const TestimonialsSection: React.FC = () => {
           </div>
 
           <a
-            href="#testimonials"
+            href="/testimonials"
             data-path="testimonials"
             className="inline-flex items-center gap-1.5 font-headline-sm text-headline-sm text-secondary hover:text-secondary-container transition-colors"
           >
@@ -42,7 +42,7 @@ export const TestimonialsSection: React.FC = () => {
 
         {/* Testimonial Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((review) => (
+          {TESTIMONIALS.slice(0, 3).map((review) => (
             <div
               key={review.id}
               className="bg-surface-container-lowest p-7 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between border border-outline-variant/10"

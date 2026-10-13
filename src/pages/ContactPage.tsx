@@ -8,23 +8,27 @@ import {
 } from '../components/contact';
 
 export const ContactPage: React.FC = () => {
-  // Handle URL hash navigation on mount and hash changes
+  // Handle URL hash and service query parameter navigation
   useEffect(() => {
-    const handleHash = () => {
+    const handleHashOrService = () => {
       const hash = window.location.hash.replace('#', '');
-      if (hash) {
+      const searchParams = new URLSearchParams(window.location.search);
+      const serviceParam = searchParams.get('service');
+
+      const targetId = hash || (serviceParam ? `dept-${serviceParam}` : '');
+      if (targetId) {
         setTimeout(() => {
-          const el = document.getElementById(hash);
+          const el = document.getElementById(targetId);
           if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }
-        }, 100);
+        }, 150);
       }
     };
 
-    handleHash();
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
+    handleHashOrService();
+    window.addEventListener('hashchange', handleHashOrService);
+    return () => window.removeEventListener('hashchange', handleHashOrService);
   }, []);
 
   return (

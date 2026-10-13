@@ -6,6 +6,8 @@ import {
   Sliders,
   Waves,
   ShieldCheck,
+  Briefcase,
+  Scale,
 } from 'lucide-react';
 import { SERVICE_CATEGORIES } from '../../data/servicesPage';
 
@@ -24,6 +26,10 @@ export const ServicesFilterBar: React.FC<ServicesFilterBarProps> = ({
         return <HardHat className="w-4 h-4" />;
       case 'hud':
         return <CheckCircle2 className="w-4 h-4" />;
+      case 'escrow':
+        return <Briefcase className="w-4 h-4" />;
+      case 'forensic':
+        return <Scale className="w-4 h-4" />;
       case 'releveling':
         return <Sliders className="w-4 h-4" />;
       case 'drainage':
@@ -37,7 +43,7 @@ export const ServicesFilterBar: React.FC<ServicesFilterBarProps> = ({
   };
 
   return (
-    <section className="sticky top-20 z-40 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/15 shadow-xs">
+    <section className="sticky top-[120px] z-40 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/15 shadow-xs">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-3.5 overflow-x-auto no-scrollbar">
         <div className="flex items-center gap-2 min-w-max text-on-surface">
           {SERVICE_CATEGORIES.map((cat) => {

@@ -7,6 +7,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   { id: 'all', label: 'All Services' },
   { id: '433a', label: '433A & Foundation Retrofits' },
   { id: 'hud', label: 'HUD / FHA / VA Certifications' },
+  { id: 'escrow', label: 'Lender & Escrow Desk' },
+  { id: 'forensic', label: 'Forensic & Legal Expert' },
   { id: 'releveling', label: 'Releveling & Understructure' },
   { id: 'drainage', label: 'Drainage & Moisture Barriers' },
   { id: 'seismic', label: 'Earthquake Bracing (ERBS)' },

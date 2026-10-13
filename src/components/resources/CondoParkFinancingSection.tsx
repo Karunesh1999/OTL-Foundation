@@ -25,7 +25,7 @@ export const CondoParkFinancingSection: React.FC<CondoParkFinancingSectionProps>
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-8">
         {/* Top Header Card (Inspired by California Borrower Services) */}
-        <div className="rounded-2xl bg-surface-container-lowest p-6 lg:p-10 shadow-sm border border-outline-variant/15 space-y-6">
+        <div className="rounded-2xl bg-surface-container-lowest p-5 sm:p-6 lg:p-10 shadow-sm border border-outline-variant/15 space-y-6">
           {/* Breadcrumb Ribbon & Category Tag */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-outline-variant/15 pb-4">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-secondary">
@@ -98,12 +98,12 @@ export const CondoParkFinancingSection: React.FC<CondoParkFinancingSectionProps>
               </div>
 
               {/* Action Buttons & Links */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
                 <a
                   href="https://entp.hud.gov/idapp/html/condlook.cfm"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-secondary-container text-on-primary font-headline-sm text-headline-sm hover:bg-secondary hover:shadow-md transition-all shadow-sm cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-secondary-container text-on-primary font-headline-sm text-headline-sm hover:bg-secondary hover:shadow-md transition-all shadow-sm cursor-pointer text-center"
                 >
                   <span>Check HUD Approved Park Registry</span>
                   <ExternalLink className="w-4 h-4" />
@@ -112,7 +112,7 @@ export const CondoParkFinancingSection: React.FC<CondoParkFinancingSectionProps>
                 <button
                   type="button"
                   onClick={() => setHudModalOpen(true)}
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-surface-container-low text-on-surface font-headline-sm text-headline-sm hover:bg-surface-container-high transition-colors border border-outline-variant/15 shadow-xs cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-surface-container-low text-on-surface font-headline-sm text-headline-sm hover:bg-surface-container-high transition-colors border border-outline-variant/15 shadow-xs cursor-pointer text-center"
                 >
                   <HelpCircle className="w-4 h-4 text-secondary" />
                   <span>How to Verify Park Eligibility</span>
@@ -157,7 +157,7 @@ export const CondoParkFinancingSection: React.FC<CondoParkFinancingSectionProps>
               </div>
 
               {/* Consultation Quick Card */}
-              <div className="p-4 rounded-xl bg-primary-container text-on-primary flex items-center justify-between gap-4 shadow-sm">
+              <div className="p-4 rounded-xl bg-primary-container text-on-primary flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 shadow-sm">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-secondary-container text-on-primary flex items-center justify-center shrink-0">
                     <FileCheck className="w-5 h-5" />
@@ -175,7 +175,7 @@ export const CondoParkFinancingSection: React.FC<CondoParkFinancingSectionProps>
                 <button
                   type="button"
                   onClick={onRequestConsultation}
-                  className="px-4 py-2 rounded-lg bg-secondary-container text-on-primary hover:bg-secondary text-xs font-bold uppercase tracking-wider shrink-0 transition-colors cursor-pointer"
+                  className="w-full sm:w-auto px-4 py-2 rounded-lg bg-secondary-container text-on-primary hover:bg-secondary text-xs font-bold uppercase tracking-wider shrink-0 transition-colors cursor-pointer text-center"
                 >
                   Consult
                 </button>

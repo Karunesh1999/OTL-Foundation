@@ -9,8 +9,8 @@ export const WHO_WE_SERVE: ClientPortalItem[] = [
     icon: 'home',
     description:
       'Foundation repairs, seismic tie-downs, re-leveling, FHA/VA retrofits, permanent permit finalization, and securing real property status.',
-    actionText: 'Homeowner Guide & Solutions',
-    path: 'homeowner-borrower',
+    actionText: 'Homeowner Foundation Solutions',
+    path: '/service#module-433a',
   },
   {
     id: 'lenders',
@@ -19,20 +19,20 @@ export const WHO_WE_SERVE: ClientPortalItem[] = [
     tagColorClass: 'bg-tertiary-fixed text-on-tertiary-fixed',
     icon: 'account_balance',
     description:
-      'Recorded 433A certificates, HUD 1996 engineer compliance reports, and expedited site inspections billed directly to escrow closing.',
-    actionText: 'Download Lender Checklist',
-    path: 'lenders-realtors',
+      'Direct escrow billing setup ($0 upfront), preliminary title 433A reviews, and fast 48-72h underwriter contingency clearance notices.',
+    actionText: 'Lender & Escrow Relations Desk',
+    path: '/service#module-escrow',
   },
   {
     id: 'lawyers',
     title: 'Lawyers & Title Co.',
-    tag: 'Title Curative',
+    tag: 'Legal & Forensic',
     tagColorClass: 'bg-surface-container-high text-on-surface',
     icon: 'gavel',
     description:
-      'Curative title resolution, missing HCD pink slips, deed of trust conversions, tax roll classifications, and deceased estate transfers.',
-    actionText: 'Title Resolution Portal',
-    path: 'resources',
+      'Forensic foundation investigations, California Superior Court expert witness testimony, defect evaluations, and curative title resolution.',
+    actionText: 'Forensic & Legal Expert Desk',
+    path: '/service#module-expert-testimony',
   },
   {
     id: 'parks',
@@ -43,6 +43,6 @@ export const WHO_WE_SERVE: ClientPortalItem[] = [
     description:
       'Resident ownership conversions, park compliance audits, master site reviews, and Crest Backyard Homes ADU foundation packages.',
     actionText: 'Community & ADU Solutions',
-    path: 'adu-custom-homes',
+    path: '/resources#condo-park-financing',
   },
 ];

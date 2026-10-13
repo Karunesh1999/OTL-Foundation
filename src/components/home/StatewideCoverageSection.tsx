@@ -15,7 +15,7 @@ export const StatewideCoverageSection: React.FC = () => {
   return (
     <section className="py-20 bg-surface-container-low border-b border-outline-variant/15" id="coverage">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="bg-surface-container-lowest rounded-2xl p-8 lg:p-12 shadow-md border border-outline-variant/10">
+        <div className="bg-surface-container-lowest rounded-2xl p-5 sm:p-8 lg:p-12 shadow-md border border-outline-variant/10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Content (7 Cols) */}
             <div className="lg:col-span-7 space-y-4">

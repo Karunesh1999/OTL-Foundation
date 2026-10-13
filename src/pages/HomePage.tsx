@@ -33,7 +33,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       <AboutSection onRequestInspection={onRequestInspection} />
 
       {/* SECTION 3: INSTANT ELIGIBILITY ASSESSMENT TOOL */}
-      <section className="py-16 bg-surface-container-lowest border-b border-outline-variant/15">
+      <section className="py-16 bg-surface-container-lowest border-b border-outline-variant/15 scroll-mt-32" id="eligibility-assessment-section">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <EligibilityAssessmentCard />
         </div>
@@ -48,8 +48,8 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* SECTION 6: CORE SPECIALTY SERVICES (6 MODULAR TILES WITH BLUEPRINT STYLING) */}
       <CoreServicesSection />
 
-      {/* SECTION 7: VIDEO DEMONSTRATION & ESSENTIAL KNOWLEDGE BASE */}
-      <VideoDemoSection />
+      {/* SECTION 7: CERTIFIED FIELD OPERATIONS & ESSENTIAL KNOWLEDGE BASE */}
+      <VideoDemoSection onRequestInspection={onRequestInspection} />
 
       {/* SECTION 6: CLIENT PRAISE & VERIFIED ESCROW TESTIMONIALS */}
       <TestimonialsSection />

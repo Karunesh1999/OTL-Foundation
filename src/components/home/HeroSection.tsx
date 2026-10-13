@@ -40,8 +40,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#assessment-card"
-                onClick={onRequestInspection}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-secondary-container text-on-primary font-headline-sm text-headline-sm hover:bg-secondary transition-all shadow-md cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onRequestInspection?.();
+                }}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-secondary-container text-on-primary font-headline-sm text-headline-sm hover:bg-secondary transition-all shadow-md cursor-pointer text-center"
               >
                 <ClipboardCheck className="w-5 h-5" />
                 <span>Request Free Inspection</span>
@@ -49,15 +52,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               <a
                 href="#assessment-card"
-                onClick={onCalculateQuote}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-surface-container-high text-on-surface font-headline-sm text-headline-sm hover:bg-surface-container-highest transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onCalculateQuote?.();
+                }}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-surface-container-high text-on-surface font-headline-sm text-headline-sm hover:bg-surface-container-highest transition-colors cursor-pointer text-center"
               >
                 <Calculator className="w-5 h-5 text-secondary" />
                 <span>Calculate Instant Quote</span>
               </a>
 
-              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-primary-container text-on-primary shadow-sm">
-                <PhoneCall className="w-5 h-5 text-secondary-container" />
+              <div className="w-full sm:w-auto flex items-center justify-center sm:justify-start gap-2.5 px-4 py-2.5 rounded-lg bg-primary-container text-on-primary shadow-sm">
+                <PhoneCall className="w-5 h-5 text-secondary-container shrink-0" />
                 <div>
                   <p className="font-badge-caps text-badge-caps text-primary-fixed uppercase leading-tight">
                     Direct Dispatch

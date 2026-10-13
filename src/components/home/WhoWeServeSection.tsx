@@ -75,9 +75,7 @@ export const WhoWeServeSection: React.FC = () => {
               </div>
 
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                data-path={item.path}
+                href={item.path}
                 className="inline-flex items-center gap-2 font-label-md text-label-md text-secondary group-hover:text-secondary-container font-semibold transition-colors pt-2"
               >
                 <span>{item.actionText}</span>

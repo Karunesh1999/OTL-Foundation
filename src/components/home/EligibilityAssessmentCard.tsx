@@ -28,7 +28,7 @@ export const EligibilityAssessmentCard: React.FC = () => {
   const isPre1976 = formData.yearBuilt && parseInt(formData.yearBuilt.trim(), 10) < 1976;
 
   return (
-    <div className="bg-surface-container-lowest rounded-2xl p-7 shadow-xl relative" id="assessment-card">
+    <div className="bg-surface-container-lowest rounded-2xl p-5 sm:p-7 shadow-xl relative scroll-mt-36 transition-all duration-300" id="assessment-card">
       <div className="flex items-center justify-between pb-4">
         <div>
           <span className="font-badge-caps text-badge-caps text-secondary uppercase font-bold tracking-wider">
@@ -195,9 +195,9 @@ export const EligibilityAssessmentCard: React.FC = () => {
       )}
 
       {/* Mini Trust Strip */}
-      <div className="mt-5 pt-4 bg-surface-container-low/50 rounded-lg p-3 flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+      <div className="mt-5 pt-4 bg-surface-container-low/50 rounded-lg p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 sm:gap-0 text-body-sm font-body-sm text-on-surface-variant">
         <div className="flex items-center gap-1.5">
-          <ShieldCheck className="w-4 h-4 text-secondary" />
+          <ShieldCheck className="w-4 h-4 text-secondary shrink-0" />
           <span className="font-semibold text-on-surface">CA Lic #677241 &amp; #1022204</span>
         </div>
         <span className="text-secondary font-label-md text-label-md">Class C-47 &amp; Class B</span>
