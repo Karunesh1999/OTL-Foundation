@@ -160,11 +160,4 @@ export const COMPLIANCE_TOOLKITS = [
     actionText: 'Read Guideline',
     isDark: false,
   },
-  {
-    id: 'toolkit-video',
-    title: 'Video: 433A Field Installation',
-    desc: 'Watch our licensed structural crews install an engineered seismic retrofit under an active escrow timeline.',
-    actionText: 'Watch Video (4 min)',
-    isDark: true,
-  },
 ];

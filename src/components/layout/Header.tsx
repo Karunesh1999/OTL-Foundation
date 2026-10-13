@@ -7,7 +7,6 @@ import {
   PhoneCall,
   Mail,
   Ruler,
-  User,
   Menu,
   X,
 } from 'lucide-react';
@@ -156,13 +155,6 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="hidden sm:inline">Request Inspection</span>
             <span className="sm:hidden">Inspect</span>
           </button>
-          
-          <div
-            className="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center text-on-primary cursor-pointer hover:opacity-90 transition-opacity shrink-0"
-            title="Engineer Portal"
-          >
-            <User className="w-4 h-4 text-on-primary" />
-          </div>
 
           {/* Mobile Menu Toggle Button */}
           <button

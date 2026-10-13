@@ -16,7 +16,7 @@ export const AboutLeadershipSection: React.FC = () => {
   };
 
   return (
-    <section className="w-full bg-surface-container-low py-16 lg:py-20 border-b border-outline-variant/15" id="leadership-fleet">
+    <section className="w-full bg-surface-container-low py-16 lg:py-20 border-b border-outline-variant/15 scroll-mt-48 transition-all duration-300" id="leadership-fleet">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
         <div className="max-w-3xl space-y-3">
           <span className="font-badge-caps text-badge-caps uppercase tracking-wider text-secondary font-bold">

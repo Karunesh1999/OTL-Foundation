@@ -4,7 +4,7 @@ import { ShieldCheck } from 'lucide-react';
 
 export const AboutValuesSection: React.FC = () => {
   return (
-    <section className="w-full bg-surface py-16 lg:py-20 border-b border-outline-variant/15" id="core-values">
+    <section className="w-full bg-surface py-16 lg:py-20 border-b border-outline-variant/15 scroll-mt-48 transition-all duration-300" id="core-values">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
         <div className="max-w-3xl space-y-3">
           <span className="font-badge-caps text-badge-caps uppercase tracking-wider text-secondary font-bold">
@@ -22,7 +22,7 @@ export const AboutValuesSection: React.FC = () => {
           {CORE_VALUES.map((val) => (
             <div
               key={val.num}
-              className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/15 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between space-y-5"
+              className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/15 shadow-sm hover:shadow-xl hover:shadow-secondary/15 hover:border-secondary/40 hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-out flex flex-col justify-between space-y-5 group cursor-pointer"
             >
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-xl bg-secondary-fixed text-on-secondary-fixed font-headline-md text-headline-md font-bold flex items-center justify-center">

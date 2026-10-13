@@ -10,7 +10,7 @@ export const AboutCtaSection: React.FC<AboutCtaSectionProps> = ({
   onRequestInspection,
 }) => {
   return (
-    <section className="w-full bg-primary-container text-on-primary py-16 lg:py-20">
+    <section id="about-cta" className="w-full bg-primary-container text-on-primary py-16 lg:py-20 scroll-mt-48 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="rounded-2xl bg-surface-container-highest/10 border border-outline-variant/15 p-8 lg:p-12 space-y-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">

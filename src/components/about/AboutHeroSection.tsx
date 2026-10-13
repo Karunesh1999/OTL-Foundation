@@ -1,16 +1,18 @@
 import React from 'react';
-import { ShieldCheck, ArrowRight, Phone } from 'lucide-react';
+import { ShieldCheck, ArrowRight, Phone, ChevronDown } from 'lucide-react';
 import { CONTACT_INFO } from '../../data/navigation';
 
 interface AboutHeroSectionProps {
   onRequestInspection?: () => void;
+  onNavigateSection?: (sectionId: string) => void;
 }
 
 export const AboutHeroSection: React.FC<AboutHeroSectionProps> = ({
   onRequestInspection,
+  onNavigateSection,
 }) => {
   return (
-    <section className="w-full bg-surface-container-lowest border-b border-outline-variant/15 py-8 lg:py-12">
+    <section id="about-hero" className="w-full bg-surface-container-lowest border-b border-outline-variant/15 py-8 lg:py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* 2-Column Hero Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -28,7 +30,7 @@ export const AboutHeroSection: React.FC<AboutHeroSectionProps> = ({
               Family-owned and operated across California. Founded with a singular, uncompromising mission: to provide direct, licensed structural engineering, precision laser releveling, and turnkey HCD 433A permanent foundation certifications for manufactured, modular, and mobile homes without subcontractor delays or broker markups.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <button
                 type="button"
                 onClick={onRequestInspection}
@@ -38,9 +40,20 @@ export const AboutHeroSection: React.FC<AboutHeroSectionProps> = ({
                 <ArrowRight className="w-4 h-4" />
               </button>
 
+              {onNavigateSection && (
+                <button
+                  type="button"
+                  onClick={() => onNavigateSection('heritage-story')}
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-headline-sm text-headline-sm transition-colors border border-outline-variant/20 shadow-xs cursor-pointer"
+                >
+                  <span>Explore 35-Year Story</span>
+                  <ChevronDown className="w-4 h-4 text-secondary" />
+                </button>
+              )}
+
               <a
                 href={CONTACT_INFO.tollFreeHref}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-surface-container-low text-on-surface font-headline-sm text-headline-sm hover:bg-surface-container-high transition-colors border border-outline-variant/15 shadow-xs"
+                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-low text-on-surface font-headline-sm text-headline-sm hover:bg-surface-container-high transition-colors border border-outline-variant/15 shadow-xs"
               >
                 <Phone className="w-4 h-4 text-secondary" />
                 <span>Call Dispatch: {CONTACT_INFO.tollFree}</span>

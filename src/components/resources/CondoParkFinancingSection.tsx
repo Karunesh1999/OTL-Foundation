@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   Building2,
-  ExternalLink,
   CheckCircle2,
   AlertCircle,
   HelpCircle,
@@ -99,24 +98,25 @@ export const CondoParkFinancingSection: React.FC<CondoParkFinancingSectionProps>
 
               {/* Action Buttons & Links */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
-                <a
-                  href="https://entp.hud.gov/idapp/html/condlook.cfm"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-secondary-container text-on-primary font-headline-sm text-headline-sm hover:bg-secondary hover:shadow-md transition-all shadow-sm cursor-pointer text-center"
-                >
-                  <span>Check HUD Approved Park Registry</span>
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-
                 <button
                   type="button"
                   onClick={() => setHudModalOpen(true)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-surface-container-low text-on-surface font-headline-sm text-headline-sm hover:bg-surface-container-high transition-colors border border-outline-variant/15 shadow-xs cursor-pointer text-center"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-secondary-container text-on-primary font-headline-sm text-headline-sm hover:bg-secondary hover:shadow-md transition-all shadow-sm cursor-pointer text-center"
                 >
-                  <HelpCircle className="w-4 h-4 text-secondary" />
+                  <HelpCircle className="w-4 h-4" />
                   <span>How to Verify Park Eligibility</span>
                 </button>
+
+                {onRequestConsultation && (
+                  <button
+                    type="button"
+                    onClick={onRequestConsultation}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-low text-on-surface font-headline-sm text-headline-sm hover:bg-surface-container-high transition-colors border border-outline-variant/15 shadow-xs cursor-pointer text-center"
+                  >
+                    <FileCheck className="w-4 h-4 text-secondary" />
+                    <span>Request Park Feasibility Lookup</span>
+                  </button>
+                )}
               </div>
             </div>
 
@@ -238,11 +238,23 @@ export const CondoParkFinancingSection: React.FC<CondoParkFinancingSectionProps>
                 </div>
               </div>
 
-              <div className="pt-2 flex items-center justify-end gap-3">
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3">
+                {onRequestConsultation && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setHudModalOpen(false);
+                      onRequestConsultation();
+                    }}
+                    className="px-5 py-2.5 rounded-lg bg-secondary-container text-on-primary font-semibold text-sm hover:bg-secondary transition-colors cursor-pointer text-center"
+                  >
+                    Request Park Lookup Assistance
+                  </button>
+                )}
                 <button
                   type="button"
                   onClick={() => setHudModalOpen(false)}
-                  className="px-5 py-2.5 rounded-lg bg-secondary-container text-on-primary font-semibold text-sm hover:bg-secondary transition-colors cursor-pointer"
+                  className="px-5 py-2.5 rounded-lg bg-surface-container-high text-on-surface font-semibold text-sm hover:bg-surface-container-highest transition-colors cursor-pointer text-center"
                 >
                   Close Guide
                 </button>

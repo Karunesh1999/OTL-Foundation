@@ -3,7 +3,7 @@ import { CheckCircle2, Award, Clock } from 'lucide-react';
 
 export const AboutHeritageSection: React.FC = () => {
   return (
-    <section className="w-full bg-surface-container-low border-b border-outline-variant/15 py-16 lg:py-20" id="heritage-story">
+    <section className="w-full bg-surface-container-low border-b border-outline-variant/15 py-16 lg:py-20 scroll-mt-48 transition-all duration-300" id="heritage-story">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Photorealistic Craftsmanship Image */}

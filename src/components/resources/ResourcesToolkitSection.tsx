@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileText, CheckCircle2, Info, Play, Download, ArrowRight } from 'lucide-react';
+import { FileText, CheckCircle2, Info, Download, ArrowRight } from 'lucide-react';
 import { COMPLIANCE_TOOLKITS } from '../../data/servicesPage';
 
 export const ResourcesToolkitSection: React.FC = () => {
@@ -12,17 +12,15 @@ export const ResourcesToolkitSection: React.FC = () => {
     }, 4500);
   };
 
-  const getIcon = (id: string, isDark: boolean) => {
+  const getIcon = (id: string) => {
     switch (id) {
       case 'toolkit-433a':
         return <FileText className="w-6 h-6 text-secondary" />;
       case 'toolkit-checklist':
         return <CheckCircle2 className="w-6 h-6 text-secondary" />;
       case 'toolkit-pre1976':
-        return <Info className="w-6 h-6 text-secondary" />;
-      case 'toolkit-video':
       default:
-        return <Play className={`w-6 h-6 ${isDark ? 'text-on-primary' : 'text-secondary'}`} />;
+        return <Info className="w-6 h-6 text-secondary" />;
     }
   };
 
@@ -59,7 +57,7 @@ export const ResourcesToolkitSection: React.FC = () => {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {COMPLIANCE_TOOLKITS.map((guide) => (
             <div
               key={guide.id}
@@ -75,7 +73,7 @@ export const ResourcesToolkitSection: React.FC = () => {
                     guide.isDark ? 'bg-secondary-container' : 'bg-surface-container-low shadow-xs'
                   }`}
                 >
-                  {getIcon(guide.id, guide.isDark)}
+                  {getIcon(guide.id)}
                 </div>
                 <h3
                   className={`font-headline-sm text-base font-bold ${

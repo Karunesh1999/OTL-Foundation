@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { MainLayout } from './components/layout';
 import { HomePage } from './pages/HomePage';
@@ -25,6 +26,31 @@ function AppContent() {
   } else if (path.startsWith('/contact')) {
     activePath = 'contact';
   }
+
+  // Synchronize browser tab title with active route
+  useEffect(() => {
+    switch (activePath) {
+      case 'services':
+        document.title = 'Engineering Services & 433A Certifications | OnTheLevel CA';
+        break;
+      case 'resources':
+        document.title = 'Lender & Realtor Compliance Resources | OnTheLevel CA';
+        break;
+      case 'testimonials':
+        document.title = 'Client Reviews & 35-Year Testimonials | OnTheLevel CA';
+        break;
+      case 'about':
+        document.title = 'About OnTheLevel | 35+ Years California Foundation Authority';
+        break;
+      case 'contact':
+        document.title = 'Contact Dispatch & Request Inspection | OnTheLevel CA';
+        break;
+      case 'home':
+      default:
+        document.title = 'OnTheLevel | California Manufactured Home Foundation Authority & Retrofit';
+        break;
+    }
+  }, [activePath]);
 
   const scrollToAssessmentCard = () => {
     const el = document.getElementById('assessment-card');
@@ -77,8 +103,7 @@ function AppContent() {
           element={
             <ResourcesPage
               onRequestConsultation={() => {
-                const el = document.getElementById('condo-park-financing');
-                el?.scrollIntoView({ behavior: 'smooth' });
+                navigate('/contact?service=hud#contact-form');
               }}
             />
           }
@@ -89,8 +114,7 @@ function AppContent() {
           element={
             <AboutPage
               onRequestInspection={() => {
-                const el = document.getElementById('heritage-story');
-                el?.scrollIntoView({ behavior: 'smooth' });
+                navigate('/contact?service=inspection#contact-form');
               }}
             />
           }
