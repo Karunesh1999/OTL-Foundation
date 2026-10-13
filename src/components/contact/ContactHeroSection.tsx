@@ -1,20 +1,11 @@
 import React from 'react';
-import { ChevronRight, Phone, PhoneCall, Mail, MapPin } from 'lucide-react';
+import { Phone, PhoneCall, Mail, MapPin } from 'lucide-react';
 import { OFFICE_LOCATION } from '../../data/contactPage';
 
 export const ContactHeroSection: React.FC = () => {
   return (
     <section className="w-full bg-surface-container-lowest border-b border-outline-variant/15 py-8 lg:py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant mb-6">
-          <a href="/" className="hover:text-secondary transition-colors">
-            Home
-          </a>
-          <ChevronRight className="w-4 h-4 text-outline" />
-          <span className="text-on-surface font-semibold">Contact Engineering &amp; Escrow Dispatch</span>
-        </nav>
-
         {/* 2-Column Hero Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-8 space-y-6">
