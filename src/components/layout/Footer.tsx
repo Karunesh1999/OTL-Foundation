@@ -25,7 +25,15 @@ export const Footer: React.FC = () => {
       if (hash) {
         setTimeout(() => {
           const el = document.getElementById(hash);
-          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          if (el) {
+            const header = document.querySelector('header');
+            const filterBar = document.getElementById('services-filter-bar');
+            const headerHeight = header ? header.offsetHeight : 120;
+            const filterHeight = path.startsWith('/service') && filterBar ? filterBar.offsetHeight : 0;
+            const offset = headerHeight + filterHeight + 20;
+            const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+          }
         }, 150);
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });

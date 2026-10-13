@@ -56,10 +56,10 @@ export const ServiceModuleForensic: React.FC<ServiceModuleForensicProps> = ({
   return (
     <article
       className="rounded-2xl bg-surface-container-lowest p-5 sm:p-8 lg:p-12 shadow-sm border border-outline-variant/15 relative overflow-hidden transition-all duration-300 scroll-mt-48"
-      id="module-expert-testimony"
+      id="module-forensic"
     >
-      {/* Invisible anchor for module-forensic alias */}
-      <span id="module-forensic" className="sr-only" />
+      {/* Invisible anchor for module-expert-testimony alias */}
+      <span id="module-expert-testimony" className="sr-only" />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Left Column (7 cols) */}

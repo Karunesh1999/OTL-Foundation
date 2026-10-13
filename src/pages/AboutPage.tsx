@@ -21,7 +21,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onRequestInspection }) => 
         setTimeout(() => {
           const el = document.getElementById(hash);
           if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const header = document.querySelector('header');
+            const offset = (header ? header.offsetHeight : 120) + 20;
+            const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
           }
         }, 100);
       }

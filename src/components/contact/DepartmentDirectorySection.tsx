@@ -32,7 +32,10 @@ export const DepartmentDirectorySection: React.FC = () => {
         setTimeout(() => {
           const el = document.getElementById(`dept-${matchingDept.id}`);
           if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const header = document.querySelector('header');
+            const offset = (header ? header.offsetHeight : 120) + 20;
+            const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
           }
         }, 150);
       }

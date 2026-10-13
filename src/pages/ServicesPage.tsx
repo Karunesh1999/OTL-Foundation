@@ -25,20 +25,43 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 }) => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
+  const scrollToModule = (targetId: string) => {
+    const el = document.getElementById(targetId);
+    if (!el) return;
+
+    // Dynamically calculate Header (120px) + Sticky Filter Bar (~70px) + 20px breathing room
+    const header = document.querySelector('header');
+    const filterBar = document.getElementById('services-filter-bar');
+    const headerHeight = header ? header.offsetHeight : 120;
+    const filterHeight = filterBar ? filterBar.offsetHeight : 68;
+    const offset = headerHeight + filterHeight + 20;
+
+    const elementPosition = el.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: Math.max(0, offsetPosition),
+      behavior: 'smooth',
+    });
+
+    // Brief highlight ring to emphasize the targeted module
+    el.classList.add('ring-4', 'ring-secondary', 'ring-offset-2');
+    setTimeout(() => {
+      el.classList.remove('ring-4', 'ring-secondary', 'ring-offset-2');
+    }, 1800);
+  };
+
   // Handle URL hash navigation on mount and hash changes
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
       if (hash) {
-        if (hash.startsWith('module-')) {
-          setActiveCategory('all');
-        }
+        let catKey = hash.replace('module-', '');
+        if (catKey === 'expert-testimony') catKey = 'forensic';
+        setActiveCategory(catKey);
         setTimeout(() => {
-          const el = document.getElementById(hash);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 100);
+          scrollToModule(hash.startsWith('module-') ? hash : `module-${hash}`);
+        }, 150);
       }
     };
 
@@ -49,13 +72,22 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
   const handleSelectCategory = (catId: string) => {
     setActiveCategory(catId);
-    if (catId !== 'all') {
-      setTimeout(() => {
-        const el = document.getElementById(`module-${catId}`);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 50);
+    if (catId === 'all') {
+      const section = document.getElementById('services-modules-section');
+      if (section) {
+        const header = document.querySelector('header');
+        const filterBar = document.getElementById('services-filter-bar');
+        const headerHeight = header ? header.offsetHeight : 120;
+        const filterHeight = filterBar ? filterBar.offsetHeight : 68;
+        const offset = headerHeight + filterHeight + 10;
+        const top = section.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({
+          top: Math.max(0, top),
+          behavior: 'smooth',
+        });
+      }
+    } else {
+      scrollToModule(`module-${catId}`);
     }
   };
 
@@ -71,48 +103,48 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       />
 
       {/* SECTION 3: TECHNICAL DEEP-DIVE MODULES */}
-      <section className="w-full bg-surface-container-low border-b border-outline-variant/15 py-12 lg:py-16">
+      <section id="services-modules-section" className="w-full bg-surface-container-low border-b border-outline-variant/15 py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
           {/* Module A: 433A Permanent Foundation Certification */}
           <ServiceModule433A
-            isVisible={activeCategory === 'all' || activeCategory === '433a'}
+            isVisible={true}
             onRequestInspection={() => onRequestInspection?.('433a')}
           />
 
           {/* Module B: HUD / FHA / VA Engineering Certification */}
           <ServiceModuleHud
-            isVisible={activeCategory === 'all' || activeCategory === 'hud'}
+            isVisible={true}
             onRequestInspection={() => onRequestInspection?.('hud')}
           />
 
           {/* Module C: Lender & Realtor Escrow Relations ($0 Upfront Billing) */}
           <ServiceModuleEscrow
-            isVisible={activeCategory === 'all' || activeCategory === 'escrow'}
+            isVisible={true}
             onRequestInspection={() => onRequestInspection?.('escrow-title')}
           />
 
           {/* Module D: Forensic Engineering & Expert Witness Testimony */}
           <ServiceModuleForensic
-            isVisible={activeCategory === 'all' || activeCategory === 'forensic'}
+            isVisible={true}
             onRequestInspection={() => onRequestInspection?.('expert-testimony')}
           />
 
-          {/* Module C: Precision Laser Releveling */}
+          {/* Module E: Precision Laser Releveling */}
           <ServiceModuleReleveling
-            isVisible={activeCategory === 'all' || activeCategory === 'releveling'}
+            isVisible={true}
             onRequestInspection={() => onRequestInspection?.('releveling')}
           />
 
-          {/* Module D: Moisture Barrier & Crawlspace Drainage */}
+          {/* Module F: Moisture Barrier & Crawlspace Drainage */}
           <ServiceModuleDrainage
-            isVisible={activeCategory === 'all' || activeCategory === 'drainage'}
+            isVisible={true}
             onGetQuote={() => onGetQuote?.('drainage')}
             onRequestInspection={() => onRequestInspection?.('drainage')}
           />
 
-          {/* Module E: Earthquake Retrofit & ERBS Seismic Bracing */}
+          {/* Module G: Earthquake Retrofit & ERBS Seismic Bracing */}
           <ServiceModuleSeismic
-            isVisible={activeCategory === 'all' || activeCategory === 'seismic'}
+            isVisible={true}
             onRequestInspection={() => onRequestInspection?.('seismic')}
           />
         </div>

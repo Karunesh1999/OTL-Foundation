@@ -43,7 +43,7 @@ export const ServicesFilterBar: React.FC<ServicesFilterBarProps> = ({
   };
 
   return (
-    <section className="sticky top-[120px] z-40 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/15 shadow-xs">
+    <section id="services-filter-bar" className="sticky top-[120px] z-40 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/15 shadow-xs">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-3.5 overflow-x-auto no-scrollbar">
         <div className="flex items-center gap-2 min-w-max text-on-surface">
           {SERVICE_CATEGORIES.map((cat) => {

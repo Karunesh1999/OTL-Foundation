@@ -20,7 +20,10 @@ export const ContactPage: React.FC = () => {
         setTimeout(() => {
           const el = document.getElementById(targetId);
           if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const header = document.querySelector('header');
+            const offset = (header ? header.offsetHeight : 120) + 20;
+            const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
           }
         }, 150);
       }
